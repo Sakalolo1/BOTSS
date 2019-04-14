@@ -34,6 +34,11 @@ var ti={}
 ,spee={}
 ,attentions={};
 
+client.on('ready', () => {
+           
+client.user.setStatus('idle');
+     
+      });
 
 client.on('message', message => {
         
