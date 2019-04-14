@@ -40,7 +40,6 @@ client.user.setStatus('idle');
      
       });
 let vipid = '515474180603641866'
-const vipfile = JSON.parse(fs.readFileSync('./vip.json' , 'utf8'));
 client.on('message', message => {
 if(!message.author.id === vipid) return message.channel.send('This Command For The Person Purchased The Premium ❌')
 if(message.content.startsWith(prefix + 'vipmove')) {
