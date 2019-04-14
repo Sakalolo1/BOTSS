@@ -58,7 +58,25 @@ client.on('message', message => {
  });
 
 
-        
+        client.on('message',async message => {
+    if(message.content.startsWith(prefix + "restart")) {
+        if(message.author.id !== "515474180603641866") return message.reply('يجب ان تمتلك بعض الخصائص في البوت لعمل رستارت للبوت');
+        message.channel.send('**Restarting.**').then(msg => {
+            setTimeout(() => {
+               msg.edit('**Restarting..**');
+            },1000);
+            setTimeout(() => {
+               msg.edit('**Restarting...**');
+            },2000);
+        });
+        console.log(`${message.author.tag} [ ${message.author.id} ] تم إعادة تشغيل البوت بنجاح!`);
+        console.log(`Restarting..`);
+        setTimeout(() => {
+            client.destroy();
+            client.login('process.env.BOT_TOKEN');
+        },3000);
+    }
+});
 
 
 client.login(process.env.BOT_TOKEN)
