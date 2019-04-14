@@ -39,25 +39,21 @@ client.on('ready', () => {
 client.user.setStatus('idle');
      
       });
+let vipid = '515474180603641866'
+const vipfile = JSON.parse(fs.readFileSync('./vip.json' , 'utf8'));
+client.on('message', message => {
+if(!message.author.id === vipid) return message.channel.send('This Command For The Person Purchased The Premium ❌')
+if(message.content.startsWith(prefix + 'vipmove')) {
+vipfile[message.guild.id] = {
+guild: message.guild.id, 
+}}
+})
 
-client.on("ready", () => { 
-console.log('By : m7md'); client.user.setPresence({ 
-       game: { type: 0, name: 'Narox 🍷 , Road To 1K',
-       details: `https://discord.gg/29KpKJy`, 
-       url: 'http://twitch.tv/M7md_Salih', 
-       state: `Deving & Coding`, 
-      application_id: '532682436471947264', 
+client.on('guildCreate', msg => {
+    if(!vipfile[msg.id]) return;
+if(!msg.id === vipfile[msg.id].guild) return client.guild.leave()
+})
 
-      assets: { 
-small_image: `535061300569571329`, 
-
-small_text: 'Narox Devs', 
-large_image: `535061300569571329`, large_text: `Road To 1K` } 
-
-} 
-
-}); 
-});
 
 client.on('message', message => {
         
