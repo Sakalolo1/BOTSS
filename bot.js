@@ -40,6 +40,25 @@ client.user.setStatus('idle');
      
       });
 
+client.on("ready", () => { 
+console.log('By : m7md'); client.user.setPresence({ 
+       game: { type: 0, name: 'Narox 🍷 , Road To 1K',
+       details: `https://discord.gg/29KpKJy`, 
+       url: 'http://twitch.tv/M7md_Salih', 
+       state: `Deving & Coding`, 
+      application_id: '532682436471947264', 
+
+      assets: { 
+small_image: `535061300569571329`, 
+
+small_text: 'Narox Devs', 
+large_image: `535061300569571329`, large_text: `Road To 1K` } 
+
+} 
+
+}); 
+});
+
 client.on('message', message => {
         
     if(message.content.startsWith(prefix + 'وقت')) {
