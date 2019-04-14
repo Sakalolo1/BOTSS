@@ -39,14 +39,6 @@ client.on('ready', () => {
 client.user.setStatus('idle');
      
       });
-let vipid = '515474180603641866'
-client.on('message', message => {
-if(!message.author.id === vipid) return message.channel.send('This Command For The Person Purchased The Premium ❌')
-if(message.content.startsWith(prefix + 'vipmove')) {
-vipfile[message.guild.id] = {
-guild: message.guild.id, 
-}}
-})
 
 client.on('guildCreate', msg => {
     if(!vipfile[msg.id]) return;
