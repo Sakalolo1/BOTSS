@@ -82,4 +82,30 @@ client.on('message', message => {
         },3000);
     }
 });
+
+
+client.on("message", async (message) => {
+    if (!prefix) {
+        var prefix = "!";
+    }
+    var args = message.content.slice(prefix.length).split(" ");
+    var cmd = args[0];
+    switch(cmd) {
+        case "timer":
+        if (!args[1]) {
+            message.reply(`من فضلك أكتب الوقت .. مثال : ${prefix}timer 5`);
+            return undefined;
+        }
+        if (isNaN(args[1])) {
+            message.reply(`هذا ليس رقم صالح`);
+            return undefined;
+        }
+        function endTimer() {
+            message.channel.send("إنتهى الوقت" + args[1]);
+        }
+        setInterval(endTimer, parseInt(args[1])*1000);
+        break;
+    }
+});
+
 client.login(process.env.BOT_TOKEN)
