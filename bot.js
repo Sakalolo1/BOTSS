@@ -205,7 +205,7 @@ client.on('message' , message => {//mrx
 
 
 
-lient.on('message', vipgen => {
+client.on('message', vipgen => {
     if (vipgen.content == "§gr vip") {  
         var x = ["321464578",
 "7864566784",
