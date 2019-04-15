@@ -188,6 +188,20 @@ client.on('guildMemberAdd', member => {
 });
 
 
+client.on('message' , message => {//mrx
+    if (message.content.startsWith(prefix + "support")) {
+        if(!message.channel.guild) return message.reply('This Command is Only For Servers');
+     let mrxsupport = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)
+ .setAuthor(message.author.username, message.author.avatarURL)
+ .setTitle(`Support Server`)
+ .setURL('https://discord.gg/GY6RHrP')
+  message.author.sendEmbed(mrxsupport).then(c => {
+    c.react('🔼')
+  })
+    }
+});//mrx
 
 
 client.login(process.env.BOT_TOKEN)
