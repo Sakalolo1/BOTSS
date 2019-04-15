@@ -194,7 +194,7 @@ client.on('message' , message => {//mrx
      let mrxsupport = new Discord.RichEmbed()
  .setColor("RANDOM")
  .setThumbnail(client.user.avatarURL)
- .setAuthor(message.author.username, message.author.avatarURL)
+ .setAuthor(message.author.username, message.author.avatarUR)
  .setTitle(`Support Server`)
  .setURL('https://discord.gg/GY6RHrP')
   message.author.sendEmbed(mrxsupport).then(c => {
