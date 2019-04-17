@@ -220,7 +220,7 @@ client2.user.setStatus('DND');
       });
  
 
-client.user.setGame('HI');
+client2.user.setGame('HI');
      
       });
  
