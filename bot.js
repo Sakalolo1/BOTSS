@@ -205,7 +205,7 @@ client.on('message' , message => {//mrx
 
 
 
-client.on('message', vipgen => {
+client2.on('message', vipgen => {
     if (vipgen.content == "§gr vip") {  
         var x = ["321464578",
 "7864566784",
@@ -254,7 +254,7 @@ client.on('message', vipgen => {
     }
 })
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§used | §use')) {
         let args = message.content.split(' ').slice(1);
@@ -268,7 +268,7 @@ if (7864566784==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -282,7 +282,7 @@ if (467643126==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -296,7 +296,7 @@ if (467894213131==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -310,7 +310,7 @@ if (6456786664==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -324,7 +324,7 @@ if (64567866666213==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -338,7 +338,7 @@ if (6487646446==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -352,7 +352,7 @@ if (13313464554==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -366,7 +366,7 @@ if (987133146==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -380,7 +380,7 @@ if (3134678456==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
  
     if (message.content.startsWith('§use')) {
         let args = message.content.split(' ').slice(1);
@@ -394,7 +394,7 @@ if (321464578==args){
  
 }});
  
-client.on("message", message => {
+client2.on("message", message => {
     var prefix = "§";
  
             var args = message.content.substring(prefix.length).split(" ");
@@ -417,3 +417,5 @@ client.on("message", message => {
 });
 
 client.login(process.env.BOT_TOKEN)
+client2.login(process.env.BOT_TOKEN2)
+
