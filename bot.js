@@ -220,24 +220,6 @@ client2.user.setStatus('DND');
       });
  
 
-client2.on('message', message => {
-    if (message.content === ('#bot vip')) {
-    message.channel.send({
-        embed: new Discord.RichEmbed()
-            .setAuthor(client2.user.username,client2.user.avatarURL)
-            .setThumbnail(client2.user.avatarURL)
-            .setColor('RANDOM')
-            .addField('✽Bot Ping :',`» ${client2.ping} ms`, true)
-            .addField('✽Servers :',`» ${clinet2.servers.size}`, true)
-        .addField('✽Channels :',`» ${clinet2.Channels.size}`, true)
-        .addField('✽Users :',`» ${clinet2.users.size}`, true)
-            .addField('✽Bot name :',`» ${clinet2.user.tag}`, true)
-        .addField('✽Bot Owner :',`» <@515474180603641866>`, true)
-        .setFooter(message.author.username, message.author.avatarURL)
-    })
-}
-});
-
 
 
 
