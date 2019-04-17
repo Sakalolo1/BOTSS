@@ -215,12 +215,6 @@ client.on('message' , message => {//mrx
 
 
 
-client2.user.setStatus('DND');
-     
-      });
- 
-
-
 
 
 
