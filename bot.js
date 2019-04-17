@@ -252,16 +252,16 @@ client.on('message' , message => {//mrx
 
 client2.on('message', vipgen => {
     if (vipgen.content == "#team vip") {  
-        var x = ["1555SW418W",
-"1675SW418W",
-"1595SW418W",
-"1581SW418W",
-"1555SW418W",
-"1155SW418W",
-"1562SW418W",
-"1515SW418W",
-"1518SW418W",
-"1512SW418W",
+        var x = ["287590903680335875",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
 ];
         var x2 = ['.',
         ".",
@@ -299,142 +299,21 @@ client2.on('message', vipgen => {
     }
 })
  
-client2.on("message", message => {
+
  
-    if (message.content.startsWith('#team | #team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (7864566784==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
-    }
-    if (7864566784!=args){
-}
  
-}});
+
  
 client2.on("message", message => {
  
     if (message.content.startsWith('#team')) {
         let args = message.content.split(' ').slice(1);
        
-if (1555SW418W==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));//لاتنسى وين مايوجد أرقام  غيرها لما تغير أكواد الفي أي بي لأن اذا ماغيرتها مرح يعطيك رانك أبدا
-    }
-    if (1555SW418W!=args){
-}
- 
-}});
- 
-client2.on("message", message => {
- 
-    if (message.content.startsWith('#team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (1675SW418W==args){
+if (287590903680335875==args){
     message.reply('تمت العملية بنجاح!')  
     message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
     }
-    if (1675SW418W!=args){
-}
- 
-}});
- 
-client2.on("message", message => {
- 
-    if (message.content.startsWith('#team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (1595SW418W==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
-    }
-    if (1595SW418W!=args){
-}
- 
-}});
- 
-client.on("message", message => {
- 
-    if (message.content.startsWith('#team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (1581SW418W==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
-    }
-    if (1581SW418W!=args){
-}
- 
-}});
- 
-client2.on("message", message => {
- 
-    if (message.content.startsWith('#team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (1555SW418W==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
-    }
-    if (1555SW418W!=args){
-}
- 
-}});
- 
-client2.on("message", message => {
- 
-    if (message.content.startsWith('#team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (13313464554==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
-    }
-    if (13313464554!=args){
-}
- 
-}});
- 
-client2.on("message", message => {
- 
-    if (message.content.startsWith('#team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (987133146==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
-    }
-    if (987133146!=args){
-}
- 
-}});
- 
-client2.on("message", message => {
- 
-    if (message.content.startsWith('#team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (3134678456==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
-    }
-    if (3134678456!=args){
-}
- 
-}});
- 
-client2.on("message", message => {
- 
-    if (message.content.startsWith('#team')) {
-        let args = message.content.split(' ').slice(1);
-       
-if (321464578==args){
-    message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
-    }
-    if (321464578!=args){
+    if (287590903680335875!=args){
 }
  
 }});
@@ -443,7 +322,7 @@ client2.on("message", message => {
     var prefix = "#";
  
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "team")) {
+            if (message.content.startsWith(prefix + "team admins")) {
         var msg;
         msg = parseInt();
      
