@@ -305,7 +305,7 @@ client2.on("message", message => {
        
 if (287590903680335875==args){
     message.reply('تمت العملية بنجاح!')  
-    message.member.addRole(message.guild.roles.find(c => c.name == "Vip"));
+    message.member.addRole(message.guild.roles.find(c => c.name == "Gelecek"));
     }
     if (287590903680335875!=args){
 }
