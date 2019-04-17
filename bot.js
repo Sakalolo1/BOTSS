@@ -232,7 +232,7 @@ client2.on('message', message => {
         .addField('✽Channels :',`» ${clinet.Channels.size}`, true)
         .addField('✽Users :',`» ${clinet.users.size}`, true)
             .addField('✽Bot name :',`» ${clinet.user.tag}`, true)
-        .addField('✽Bot Owner :',`» <@ايديك هنا>`, true)
+        .addField('✽Bot Owner :',`» <@515474180603641866>`, true)
         .setFooter(message.author.username, message.author.avatarURL)
     })
 }
