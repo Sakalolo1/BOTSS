@@ -29,6 +29,7 @@ const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
 const prefix = 'R';
+const client2 = new Discord.Client();
 var table = require('table').table
 var ti={}  
 ,spee={}
