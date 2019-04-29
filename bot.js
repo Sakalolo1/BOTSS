@@ -39,13 +39,7 @@ client.on('ready', () => {
            
 client.user.setStatus('idle');
      
-      });
-
-client.on('guildCreate', msg => {
-    if(!vipfile[msg.id]) return;
-if(!msg.id === vipfile[msg.id].guild) return client.guild.leave()
-})
-
+     });
 
 
 client.on('message', message => {
@@ -176,9 +170,7 @@ client.on("message", message => {
 
         let sayed = message.content.split(" ").slice(1).join(" ")
 if(sayed) return;
-message.channel.send(sayed)
-
-};
+message.channel.send(sayed);
 	
 	
 
