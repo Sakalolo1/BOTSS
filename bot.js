@@ -177,8 +177,9 @@ client.on("message", message => {
         let sayed = message.content.split(" ").slice(1).join(" ")
 if(sayed) return;
 message.channel.send(sayed)
-
-});
+        }))
+    }
+})
 	
 
 
