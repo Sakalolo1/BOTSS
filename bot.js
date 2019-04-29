@@ -28,7 +28,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-const prefix = 'R';
+const prefix = 'A';
 const client2 = new Discord.Client();
 var table = require('table').table
 var ti={}  
@@ -169,6 +169,16 @@ client.on('message', message => {
 	})
 }
 });
+
+client.on("message", message => {
+    if(message.author.bot) return;
+    if(message.content.startsWith(prefix + "say")) {
+
+        let sayed = message.content.split(" ").slice(1).join(" ")
+if(sayed) return;
+message.channel.send(sayed)
+})
+
 
 client.on("message", (message) => {
     if(message.content.startsWith(prefix+"gmail")) {
