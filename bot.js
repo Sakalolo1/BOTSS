@@ -164,17 +164,6 @@ client.on('message', message => {
 }
 });
 
-client.on("message", message => {
-    if(message.author.bot) return;
-    if(message.content.startsWith(prefix + "say")) {
-
-        let sayed = message.content.split(" ").slice(1).join(" ")
-if(sayed) return;
-message.channel.send(sayed);
-	
-	
-
-
 client.on("message", (message) => {
     if(message.content.startsWith(prefix+"gmail")) {
         message.channel.send(JSON.stringify({
