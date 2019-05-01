@@ -189,7 +189,6 @@ client.on('message' , message => {//mrx
         if(!message.channel.guild) return message.reply('This Command is Only For Servers');
      let mrxsupport = new Discord.RichEmbed()
  .setColor("RANDOM")
- .setThumbnail(client.user.avatarURL)
  .setAuthor(message.author.username)
  .setTitle(`Support Server`)
  .setURL('https://discord.gg/gSk7Bw2')
