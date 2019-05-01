@@ -63,7 +63,7 @@ client.on('ready', () => {
 client.on('ready', () => {
            client.user.setActivity("صيانه خفيفه")
 
-client.user.setStatus('idle');
+client.user.setStatus('DND');
      
      });
 
