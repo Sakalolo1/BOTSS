@@ -330,6 +330,7 @@ client.on('message', message => {
 });
 
 client.on("message", message => {
+    let prefix= 'A'
 let args = message.content.split(' ');
   if(args[0].toLowerCase() === (prefix + "server")) {
         let embed = new Discord.RichEmbed()
