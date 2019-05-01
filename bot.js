@@ -190,14 +190,30 @@ client.on('message' , message => {//mrx
      let mrxsupport = new Discord.RichEmbed()
  .setColor("RANDOM")
  .setThumbnail(client.user.avatarURL)
- .setAuthor(message.author.username, message.author.avatarURL)
+ .setAuthor(message.author.username,)
  .setTitle(`Support Server`)
- .setURL('https://discord.gg/GY6RHrP')
+ .setURL('https://discord.gg/gSk7Bw2')
   message.author.sendEmbed(mrxsupport).then(c => {
     c.react('🔼')
   })
     }
 });//mrx
+
+
+
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = message.content.split(" ").slice(1);
+  if (command === "say") {
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+          message.delete()
+    message.channel.sendMessage(args.join(" "))
+  }
+});
 
 
 client.login(process.env.BOT_TOKEN)
