@@ -193,7 +193,7 @@ client.on('message' , message => {//mrx
  .setTitle(`Support Server`)
  .setURL('https://discord.gg/gSk7Bw2')
   message.author.sendEmbed(mrxsupport).then(c => {
-    c.react('🔼')
+    c.react(':heart_eyes:, :hearts:')
   })
     }
 });//mrx
