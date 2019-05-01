@@ -326,5 +326,12 @@ client.on("message", async message => {
     }     
 })
 
+
+
+client.on("guildMemberAdd", member => {
+  client.channels.find('id', '569979981606682635').send(`**Welcome to alanaqah :wave:  ${member} **`)
+});
+
+
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
