@@ -279,7 +279,7 @@ if(m.roles.some(r => r.id == role.id)) return
  let bots = msg.guild.members.filter(m => m.user.bot)
  bots.forEach(bot => {
    if(bot.roles.some(r => r.id == role.id)) return
-   bot.addRole(role)
+   client.addRole(role)
  })
  msg.channel.send(`**done give all bots role @${role.name}**`);
 } else if(params[0] === 'humans') {
@@ -309,6 +309,21 @@ if(m.roles.some(r => r.id == role.id)) return
  
  
 })
+
+
+
+
+
+const voiceChannel = '573091015234289664';
+client.on("ready", () => {
+          setInterval(function () {
+            let thedate = new Date().getTime();
+            let ramadan = new Date("May 6, 2019 00:00:00").getTime();
+            var timespan = cd(thedate, ramadan);
+           client.channels.get(voiceChannel).setName(`Reamaining days: [${timespan}]`)
+          }, 10000);
+      }
+});
 
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
