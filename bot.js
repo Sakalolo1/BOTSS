@@ -311,8 +311,6 @@ if(m.roles.some(r => r.id == role.id)) return
 })
 
 
-var prefix = "D";
-
 client.on("message", async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
