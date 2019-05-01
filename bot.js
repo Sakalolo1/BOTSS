@@ -241,40 +241,6 @@ if(!message.channel.guild) return message.channel.send('**هذا الأمر فق
 });
 
 
-client.on('message', msg => {
-    let params = msg.content.slice(prefix.length).trim().split(/ +/g);
- 
-  if(msg.author.client) return
-  if(msg.content.toLowerCase().startsWith(prefix + 'setorder')) {
-    if(!params[1]) return msg.channel.send(`منشن الروم او اكتب اسمه`)
-    let channel = msg.mentions.channels.first() || msg.guild.channels.find(c => c.name.toLowerCase().startsWith(params[1].toLowerCase()));
-    if(channel === undefined) return msg.channel.send(`**انا لم استطع العثور على هذا الروم ${params[1]}**`)
-    db.set(`order.${msg.guild.id}.channel`, channel.id)
-    msg.channel.send(`**تم اعداد روم الطلب ل روم ${channel}**`)
-  }
-})
- 
-client.on('message', msg => {
-    let params = msg.content.slice(prefix.length).trim().split(/ +/g);
- 
-  if(msg.author.client) return
- 
-  if(msg.content.toLowerCase().startsWith(prefix + 'order')) {
-    let args = params.slice(1).join(' ')
-    let channelID = db.get(`order.${msg.guild.id}.channel`)
-    if(channelID === null || channelID === undefined) return msg.channel.send(`قم بأعداد روم الطلب عن طريق الامر الآتي \n ${prefix}setOrder #channel`)
-    let channel = msg.guild.channels.get(channelID)
-    if(channel === undefined) return msg.channel.send(`قم بأعداد روم الطلب عن طريق الامر الآتي \n ${prefix}setOrder #channel`)
-    if(!args) return msg.channel.send(`اكتب طلبك لو سمحت ^^`)
-    let embed = new Discord.RichEmbed()
-    .setTitle(`🔔New Order!!`)
-    .setDescription(`\**▶sender** => <@${msg.author.id}> \n \n**🛒order =>** **\`${args}\`**`)
-    .setFooter(`AL ANAQAH`)
-    .setTimestamp(Date.now())
-    channel.send(embed)
-  }
-})
-
 
 client.on("guildCreate" , guild => {
     const embed = new Discord.RichEmbed()
@@ -289,6 +255,59 @@ client.on("guildCreate" , guild => {
     client.channels.get('573084977730682890').send({
         embed: embed
     });
+})
+
+
+client.on('message', msg => {
+  if(msg.author.bot) return
+  if(msg.content.startsWith(prefix + 'role')) {
+  let params = msg.content.slice(prefix.length).trim().split(/ +/g);
+  if(!params[0]) return msg.channel.send(`**syntax: ${prefix}role <all/humans/bots/@user> <name role/@role>`);
+if(params[0] === 'all') {
+ if(!params[1]) return msg.channel.send(`**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role all <@role / name role>**`)
+     let role = msg.mentions.roles.first() || msg.guild.roles.find(r =>  r.name.toLowerCase().startsWith(params[1].toLowerCase()))
+   if(!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`)
+ msg.guild.members.forEach(m => {
+if(m.roles.some(r => r.id == role.id)) return
+     m.addRole(role)
+ })
+ msg.channel.send(`**done give all role @${role.name}**`);
+} else if(params[0] === 'bots') {
+ if(!params[1]) return msg.channel.send(`**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role bots <@role / name role>**`)
+     let role = msg.mentions.roles.first() || msg.guild.roles.find(r =>  r.name.toLowerCase().startsWith(params[1].toLowerCase()))
+   if(!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`)
+ let bots = msg.guild.members.filter(m => m.user.bot)
+ bots.forEach(bot => {
+   if(bot.roles.some(r => r.id == role.id)) return
+   bot.addRole(role)
+ })
+ msg.channel.send(`**done give all bots role @${role.name}**`);
+} else if(params[0] === 'humans') {
+ if(!params[1]) return msg.channel.send(`**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role humans <@role / name role>**`)
+     let role = msg.mentions.roles.first() || msg.guild.roles.find(r =>  r.name.toLowerCase().startsWith(params[1].toLowerCase()))
+   if(!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`)
+   let humans = msg.guild.members.filter(m => !m.user.bot)
+   humans.forEach(h => {
+     if(h.roles.some(r => r.id == role.id)) return
+     h.addRole(role)
+   })
+   msg.channel.send(`**done give all humans role @${role.name}**`);
+}else {
+     if(!params[1]) return msg.channel.send(`**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role @user <@role / name role>**`)
+     let role = msg.mentions.roles.first() || msg.guild.roles.find(r =>  r.name.toLowerCase().startsWith(params[1].toLowerCase()))
+     if(!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`)
+     let userID = params[0].slice(2 , -1)
+     let user = msg.guild.members.get(userID)
+     if(!user) return
+     user.addRole(role)
+     msg.channel.send(`**Done give ${user} @${role.name}**`)
+ 
+   }
+ 
+ 
+ }
+ 
+ 
 })
 
 client.login(process.env.BOT_TOKEN)
