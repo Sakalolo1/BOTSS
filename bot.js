@@ -61,7 +61,7 @@ client.on('ready', () => {
   console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
 });
 client.on('ready', () => {
-           client.user.setActivity("Yousef development")
+           client.user.setActivity("صيانه خفيفه")
 
 client.user.setStatus('idle');
      
