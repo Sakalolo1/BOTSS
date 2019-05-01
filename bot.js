@@ -352,7 +352,6 @@ client.on('message', message => {
 client.on('guildCreate', guild => {
     var embed = new Discord.RichEmbed()
     .setColor(0x5500ff)
-    .setAuthor(message.author.username)
     .setTitle(`AL ANAQAH`)
     .setDescription(`**ا شكراً لك لإضافه البوت الى سيرفرك**`)
     .addField(`Servers`, `${client.guilds.size}`)
