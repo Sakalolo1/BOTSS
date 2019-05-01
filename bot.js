@@ -297,5 +297,17 @@ client.on('message', async message => {
 })
 
 
+
+client.on('message', message => {
+    if (message.content.startsWith("<@564065937175871508>"))
+    
+    message.reply("ارحب");
+    
+      
+
+
+
+});
+
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
