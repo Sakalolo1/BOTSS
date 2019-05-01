@@ -242,8 +242,8 @@ if(!message.channel.guild) return message.channel.send('**هذا الأمر فق
 
 
 
-Client.on("message", async (message) => {
-    if (message.author.bot) return;
+client.on("message", async (message) => {
+    if (message.author.client) return;
     let prefix = 'A'
     if (!message.content.startsWith(prefix)) return;
 
