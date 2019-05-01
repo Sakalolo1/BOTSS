@@ -304,7 +304,19 @@ client.on('message', message => {
 });
 
 
+client.on('message', message => {
+    let args = message.content.split(' ').slice(1);
 
+    if(message.content.startsWith(prefix + 'dm')) {
+        let mnt = message.mentions.users.first();
+        if(!mnt) return message.reply('Please mention someone!');
+        mnt.send(args.join(' ').replace(mnt, '')).then(() => {
+            message.channel.send('Successfully sent the message!');
+        }).catch(() => {
+            message.channel.send('The user have dms disabled');
+        });
+    };
+})
 
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
