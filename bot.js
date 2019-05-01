@@ -279,7 +279,7 @@ if(m.roles.some(r => r.id == role.id)) return
  let bots = msg.guild.members.filter(m => m.user.bot)
  bots.forEach(bot => {
    if(bot.roles.some(r => r.id == role.id)) return
-   client.addRole(role)
+   bot.addRole(role)
  })
  msg.channel.send(`**done give all bots role @${role.name}**`);
 } else if(params[0] === 'humans') {
