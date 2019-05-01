@@ -244,7 +244,7 @@ if(!message.channel.guild) return message.channel.send('**هذا الأمر فق
 client.on('message', msg => {
     let params = msg.content.slice(prefix.length).trim().split(/ +/g);
  
-  if(msg.author.bot) return
+  if(msg.author.client) return
   if(msg.content.toLowerCase().startsWith(prefix + 'setorder')) {
     if(!params[1]) return msg.channel.send(`منشن الروم او اكتب اسمه`)
     let channel = msg.mentions.channels.first() || msg.guild.channels.find(c => c.name.toLowerCase().startsWith(params[1].toLowerCase()));
@@ -257,7 +257,7 @@ client.on('message', msg => {
 client.on('message', msg => {
     let params = msg.content.slice(prefix.length).trim().split(/ +/g);
  
-  if(msg.author.bot) return
+  if(msg.author.client) return
  
   if(msg.content.toLowerCase().startsWith(prefix + 'order')) {
     let args = params.slice(1).join(' ')
@@ -269,7 +269,7 @@ client.on('message', msg => {
     let embed = new Discord.RichEmbed()
     .setTitle(`🔔New Order!!`)
     .setDescription(`\**▶sender** => <@${msg.author.id}> \n \n**🛒order =>** **\`${args}\`**`)
-    .setFooter(`By Codes`)
+    .setFooter(`AL ANAQAH`)
     .setTimestamp(Date.now())
     channel.send(embed)
   }
