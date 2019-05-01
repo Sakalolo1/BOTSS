@@ -329,6 +329,24 @@ client.on('message', message => {
 }
 });
 
+client.on('message', msg =>{
+        let args = msg.content.slice(4);
+  if (msg.author.id !== '515474180603641866') return;
+  if (msg.content.startsWith('Sweet')) {
+   msg.channel.send(args)   
+  }
+})
+
+
+client.on('message', message => {
+  if(message.content.includes('discord.gg/')){                                       
+      if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+      message.delete()
+  return message.reply(`** Not allowed to advertising Here :angry: ! **`)
+  }
+}
+});
+
 
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
