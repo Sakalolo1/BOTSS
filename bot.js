@@ -241,6 +241,40 @@ if(!message.channel.guild) return message.channel.send('**هذا الأمر فق
 });
 
 
+client.on('message', msg => {
+    let params = msg.content.slice(prefix.length).trim().split(/ +/g);
+ 
+  if(msg.author.bot) return
+  if(msg.content.toLowerCase().startsWith(prefix + 'setorder')) {
+    if(!params[1]) return msg.channel.send(`منشن الروم او اكتب اسمه`)
+    let channel = msg.mentions.channels.first() || msg.guild.channels.find(c => c.name.toLowerCase().startsWith(params[1].toLowerCase()));
+    if(channel === undefined) return msg.channel.send(`**انا لم استطع العثور على هذا الروم ${params[1]}**`)
+    db.set(`order.${msg.guild.id}.channel`, channel.id)
+    msg.channel.send(`**تم اعداد روم الطلب ل روم ${channel}**`)
+  }
+})
+ 
+client.on('message', msg => {
+    let params = msg.content.slice(prefix.length).trim().split(/ +/g);
+ 
+  if(msg.author.bot) return
+ 
+  if(msg.content.toLowerCase().startsWith(prefix + 'order')) {
+    let args = params.slice(1).join(' ')
+    let channelID = db.get(`order.${msg.guild.id}.channel`)
+    if(channelID === null || channelID === undefined) return msg.channel.send(`قم بأعداد روم الطلب عن طريق الامر الآتي \n ${prefix}setOrder #channel`)
+    let channel = msg.guild.channels.get(channelID)
+    if(channel === undefined) return msg.channel.send(`قم بأعداد روم الطلب عن طريق الامر الآتي \n ${prefix}setOrder #channel`)
+    if(!args) return msg.channel.send(`اكتب طلبك لو سمحت ^^`)
+    let embed = new Discord.RichEmbed()
+    .setTitle(`🔔New Order!!`)
+    .setDescription(`\**▶sender** => <@${msg.author.id}> \n \n**🛒order =>** **\`${args}\`**`)
+    .setFooter(`By Codes`)
+    .setTimestamp(Date.now())
+    channel.send(embed)
+  }
+})
+
 
 client.on("guildCreate" , guild => {
     const embed = new Discord.RichEmbed()
