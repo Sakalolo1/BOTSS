@@ -262,27 +262,21 @@ var ApL = `${Math.round(client.ping)}`
  });
 
 
-client.on('message', async message => {
-  if(message.content.startsWith(prefix + "voicesetup")) {
-  if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
-  if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply('❌ **ليس معي الصلاحيات الكافية**');
-  var args = message.content.split(' ').slice(1).join(' ');
-  if(args && !args.includes(0)) return message.channel.send('❎ » فشل اعداد الروم الصوتي .. __يجب عليك كتابة 0 في اسم الروم__');
-  if(!args) args = `VoiceOnline: [ ${message.guild.members.filter(s => s.voiceChannel).size} ]`;
-  message.channel.send('✅ » تم عمل الروم الصوتي بنجاح');
-  message.guild.createChannel(`${args.replace(0, message.guild.members.filter(s => s.voiceChannel).size)}`, 'voice').then(c => {
-    c.overwritePermissions(message.guild.id, {
-      CONNECT: false,
-      SPEAK: false
-    });
-    setInterval(() => {
-      c.setName(`${args.replace(0, message.guild.members.filter(s => s.voiceChannel).size)}`).catch(err => {
-        if(err) return;
-      });
-    },3000);
-  });
-  }
-});
+const voiceChannel = '573104098379956234'; 
+
+const membersSize = (client) => {
+ return client.channels.filter(c => c.type === "voice").map(c => c.members.size).reduce((a,b) => {return a + b}, 0);
+}
+
+
+client.on('ready', () => {
+client.channels.get(voiceChannel).setName(`Voice Online: [${membersSize(client)}]`)
+}); 
+
+client.on('voiceStateUpdate', () => {
+client.channels.get(voiceChannel).setName(`Voice Online: [${membersSize(client)}]`)
+})
+
 
 
 client.on('message', async message => {
@@ -308,6 +302,9 @@ client.on('message', message => {
 
 
 });
+
+
+
 
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
