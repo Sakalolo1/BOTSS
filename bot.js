@@ -397,5 +397,18 @@ client.on('message', message => {
 });
 
 
+client.on('guildCreate', guild => {
+  let support = client.guilds.get('569579700133953547') // حط هنا ايدي سيرفر السبورت
+  if(support === undefined) return
+  let role = support.roles.find(r => r.name == 'Tester.') // بدلها بأسم الرتبة يلي تبيها للمستخدمين
+  let member = support.members.get(guild.owner.user.id) 
+  if(member) {
+    member.addRole(role)
+  } else {
+    console.log(`this user not in support server`)
+  }
+})
+
+
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
