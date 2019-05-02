@@ -123,8 +123,6 @@ client.on('message' , message => {//mrx
     }
 });//mrx
 
-
-
 client.on('message', message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -155,7 +153,6 @@ client.on("guildCreate" , guild => {
         embed: embed
     });
 })
-
 
 client.on('message', msg => {
   if(msg.author.bot) return
