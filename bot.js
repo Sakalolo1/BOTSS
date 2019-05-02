@@ -61,7 +61,7 @@ client.on('ready', () => {
   console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
 });
 client.on('ready', () => {
-           client.user.setActivity("صيانه خفيفه")
+           client.user.setActivity("Done > !help > Soon")
 
 client.user.setStatus('dnd');
      
