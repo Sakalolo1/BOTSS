@@ -375,8 +375,11 @@ client.on('guildCreate', guild => {
     var embed = new Discord.RichEmbed()
     .setColor(0x5500ff)
     .setTitle(`AL ANAQAH`)
+    .addField(`:id: Server ID:`, `${message.guild.id}`, true)
     .setDescription(`**ا شكراً لك لإضافه البوت الى سيرفرك**`)
-    .addField(`Servers`, `${client.guilds.size}`)
+    .addField(`سيرفرات`, `${client.guilds.size}`, `: تمت اضافة البوت في`)
+    .setAuthor(`${message.guild.name}`, `${message.guild.iconURL}`);
+    
         guild.owner.send(embed)
   });
 
