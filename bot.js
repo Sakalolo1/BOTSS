@@ -144,7 +144,7 @@ if(!message.channel.guild) return message.channel.send('**هذا الأمر فق
 client.on("guildCreate" , guild => {
     const embed = new Discord.RichEmbed()
         .setTimestamp()
-        .setAuthor(`**اسم السيرفر :** ${guild.name} |  **ايدي السيرفر : **(${guild.id})`)
+        .setAuthor(`${guild.name} | (${guild.id})`)
         .addField(`Owner`, `${guild.owner.user.tag} (${guild.ownerID})`)
         .addField(`Channels`, `${guild.channels.size}`)
         .addField(`Members`, `${guild.memberCount}`)
