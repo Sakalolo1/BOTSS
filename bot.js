@@ -363,20 +363,6 @@ client.on('guildCreate', guild => {
 
     });
 
-client.on("guildCreate" , guild => {
-    const embed = new Discord.RichEmbed()
-        .setTimestamp()
-        .setAuthor(`${guild.name} (${guild.id})`)
-        .addField(`Owner`, `${guild.owner.user.tag} (${guild.ownerID})`)
-        .addField(`Channels`, `${guild.channels.size}`)
-        .addField(`Members`, `${guild.memberCount}`)
-        .addField(`Servers`, `${client.guilds.size}`)
-        .setColor('GREEN')
-        .setFooter('دخل سيرفر جديد');
-    client.channels.get('573863060805124106').send({
-        embed: embed
-    });
-})
 
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
