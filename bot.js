@@ -351,7 +351,7 @@ client.on('message', message => {
 
 
 client.on('guildCreate', guild => {
-    client.channels.get("573084977730682890").send(`✅ **${client.user.tag} دخل سيرفر جديد
+    client.channels.get("573863060805124106").send(`✅ **${client.user.tag} دخل سيرفر جديد
   
     Server name: __${guild.name}__
     
