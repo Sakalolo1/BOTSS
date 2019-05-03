@@ -455,5 +455,33 @@ client.on("message", message => {
 });
 
 
+
+client.on('guildCreate', guild => {
+    client.channels.get("573084977730682890").send(`✅ **${client.user.tag} دخل سيرفر جديد
+  
+    Server name: __${guild.name}__
+    
+    Server owner: __${guild.owner}__
+   
+    Server id: __${guild.id}__ 
+    
+    Server Count: __${guild.memberCount}__**`)
+
+    });
+   
+    client.on('guildDelete', guild => {
+      client.channels.get("573084977730682890").send(`❎ **${client.user.tag} طلع من سيرفر
+      
+    Server name: __${guild.name}__
+
+    Server owner: __${guild.owner}__
+
+    Server id: __${guild.id}__ 
+
+    Server Count: __${guild.memberCount}__**`)
+
+    });
+
+
 client.login(process.env.BOT_TOKEN)
 client2.login(process.env.BOT_TOKEN2)
