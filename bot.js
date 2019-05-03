@@ -121,7 +121,7 @@ client.on('message' , message => {//mrx
     c.react(':heart_eyes:, :hearts:')
   })
     }
-});//mrx
+});
 
 client.on('message', message => {
   if (message.author.bot) return;
@@ -327,7 +327,6 @@ client.on('guildCreate', guild => {
     var embed = new Discord.RichEmbed()
     .setColor(0x5500ff)
     .setTitle(`AL ANAQAH`)
-    .addField(`:id: Server ID:`, `${message.guild.id}`, true)
     .setDescription(`**ا شكراً لك لإضافه البوت الى سيرفرك**`)
     .addField(`سيرفرات`, `${client.guilds.size}`, `: تمت اضافة البوت في`)
     .setAuthor(`${message.guild.name}`, `${message.guild.iconURL}`);
