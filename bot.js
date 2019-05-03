@@ -338,30 +338,32 @@ client.on('message', message => {
 
 
 client.on('guildCreate', guild => {
-    client.channels.get("573863060805124106").send(`✅ **${client.user.tag} دخل سيرفر جديد
+    client.channels.get("573084977730682890").send(`✅ **${client.user.tag} دخل سيرفر جديد
   
-    Server name: __${guild.name}__
+    Server name: ``__${guild.name}__``
     
-    Server owner: __${guild.owner}__
+    Server owner: ``__${guild.owner}__``
    
-    Server id: __${guild.id}__ 
+    Server id: ``__${guild.id}__`` 
     
-    Server Count: __${guild.memberCount}__**`)
+    Server Count: ``__${guild.memberCount}__``**`)
 
-    });
+    }); //Codes
    
     client.on('guildDelete', guild => {
-      client.channels.get("573861293983793182").send(`❎ **${client.user.tag} طلع من سيرفر
-      
-    Server name: __${guild.name}__
+      client.channels.get("573084977730682890").send(`❎ **${client.user.tag} طلع من سيرفر
 
-    Server owner: __${guild.owner}__
+    Server name: ``__${guild.name}__``
 
-    Server id: __${guild.id}__ 
+    Server owner: ``__${guild.owner}__``
 
-    Server Count: __${guild.memberCount}__**`)
+    Server id: ``__${guild.id}__`` 
+
+    Server Count: ``__${guild.memberCount}__``**`)
 
     });
+
+
 
 
 client.login(process.env.BOT_TOKEN)
