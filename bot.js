@@ -393,28 +393,6 @@ client.on('message', message => {
   }
 });
 
-client.on("message", message => {
-if(message.content.startsWith(prefix + "avatar")){
-if(message.author.bot || message.channel.type == "dm") return;
-var avtmnt = message.mentions.users.first();
-var avt = avtmnt || message.author;
-var args = message.content.split(" ")[1];
-if(args == "server"){
-let avts = new Discord.RichEmbed()
-.setColor("#36393e")
-.setAuthor(`Server Avatar`, message.author.avatarURL)
-.setImage(message.guild.iconURL)
-.setFooter(`AL ANAQAH.`, message.client.user.avatarURL);
-message.channel.send(avts);
-} else {
-let avtm = new Discord.RichEmbed()
-.setColor("#36393e")
-.setAuthor(`${avt.username}, message.author.avatarURL)
-.setImage(avt.avatarURL)
-.setFooter(`AL ANAQAH.`, message.client.user.avatarURL);
-message.channel.send(avtm);
-}
-}
 
 client.on('guildCreate', guild => {
   let support = client.guilds.get('569579700133953547') // حط هنا ايدي سيرفر السبورت
