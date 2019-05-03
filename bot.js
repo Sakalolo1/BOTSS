@@ -243,6 +243,7 @@ var ApL = `${Math.round(client.ping)}`
  });
 
 
+
 const voiceChannel = '573104098379956234'; 
 
 const membersSize = (client) => {
