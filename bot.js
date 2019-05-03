@@ -470,7 +470,7 @@ client.on('guildCreate', guild => {
     });
    
     client.on('guildDelete', guild => {
-      client.channels.get("573084977730682890").send(`❎ **${client.user.tag} طلع من سيرفر
+      client.channels.get("573861293983793182").send(`❎ **${client.user.tag} طلع من سيرفر
       
     Server name: __${guild.name}__
 
