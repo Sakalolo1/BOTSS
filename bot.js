@@ -369,8 +369,7 @@ client.on('guildCreate', guild => {
         if(msg.content.startsWith (prefix  + 'serverinfo')) {
          let embed = new Discord.RichEmbed()
          .setColor('RANDOM')
-         .setThumbnail(msg.guild.iconURL)
-         .setTitle(`${msg.guild.iconURL}`                                   ,`${msg.guild.name}`)
+         .setTitle(`${message.guild.iconURL}`                                   ,`${msg.guild.name}`)
          .addField(':earth_africa: Others'                                    ,`${msg.guild.region} `,true)
          .addField(':closed_lock_with_key:  Role'                                          ,`${msg.guild.roles.size} `,true)
          .addField(':busts_in_silhouette:  Members '                                      ,`${msg.guild.memberCount} `,true)
@@ -383,6 +382,8 @@ client.on('guildCreate', guild => {
          msg.channel.send({embed:embed});
         }
         });
+
+
 
 
 
