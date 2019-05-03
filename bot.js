@@ -378,7 +378,7 @@ client.on('guildCreate', guild => {
          .addField(':speech_balloon: Channels Chat'                              ,`** ${msg.guild.channels.filter(m => m.type === 'text').size}** `,true)
          .addField(':speech_balloon: Channels Voice'                                ,`**${msg.guild.channels.filter(m => m.type === 'voice').size} **`,true)
          .addField(':crown: Owned by'                                           ,`**${msg.guild.owner}**`,true)
-         .addField('🆔**__ ايدي السيرفر__**'                                    ,`**${msg.guild.id}**`,true)
+         .addField(':id: Server ID:'                                    ,`**${msg.guild.id}**`,true)
          .addField(':calendar: Created On'                              ,msg.guild.createdAt.toLocaleString())
          msg.channel.send({embed:embed});
         }
