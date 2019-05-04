@@ -67,6 +67,10 @@ client.user.setStatus('dnd');
      
      });
 
+client.on('message', message => {
+	console.log(message.content);
+});
+
 
         client.on('message',async message => {
     if(message.content.startsWith(prefix + "restart")) {
