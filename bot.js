@@ -248,7 +248,7 @@ var ApL = `${Math.round(client.ping)}`
 
 
 
-const voiceChannel = '573104098379956234'; 
+const voiceChannel = '573270157858701332'; 
 
 const membersSize = (client) => {
  return client.channels.filter(c => c.type === "voice").map(c => c.members.size).reduce((a,b) => {return a + b}, 0);
