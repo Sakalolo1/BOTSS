@@ -94,9 +94,9 @@ client.on('message', message => {
 
 
 client.on("message", (message) => {
-    if(message.content.startsWith(prefix+"gmail")) {
+    if(message.content.startsWith(prefix+"outlook")) {
         message.channel.send(JSON.stringify({
-            email: Math.random().toString(36).slice(4).trim()+"@gmail.com",
+            email: Math.random().toString(36).slice(4).trim()+"@outlook.com",
             password: Math.random().toString(36).slice(4).trim()
         }))
     }
