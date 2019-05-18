@@ -28,7 +28,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-const prefix = 'A';
+const prefix = '!';
 const client2 = new Discord.Client();
 var table = require('table').table
 var ti={}  
@@ -104,111 +104,6 @@ client.on("message", (message) => {
 
 
 client.on('guildMemberAdd', member => {
-    const millis = new Date().getTime() - member.user.createdAt.getTime();
-    const now = new Date();
-    const createdAt = millis / 1000 / 60 / 60 / 24;
-    const days = createdAt.toFixed(0);
-    if(!days) return;
-    if( days < 30 ) { member.ban() };    
-});
-
-
-client.on('message' , message => {//mrx
-    if (message.content.startsWith(prefix + "support")) {
-        if(!message.channel.guild) return message.reply('This Command is Only For Servers');
-     let mrxsupport = new Discord.RichEmbed()
- .setColor("RANDOM")
- .setAuthor(message.author.username)
- .setTitle(`Support Server`)
- .setURL('https://discord.gg/gSk7Bw2')
-  message.author.sendEmbed(mrxsupport).then(c => {
-    c.react(':heart_eyes:, :hearts:')
-  })
-    }
-});
-
-client.on('message', message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-  let args = message.content.split(" ").slice(1);
-  if (command === "say") {
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
-          message.delete()
-    message.channel.sendMessage(args.join(" "))
-  }
-});
-
-
-client.on('message', msg => {
-  if(msg.author.bot) return
-  if(msg.content.startsWith(prefix + 'role')) {
-  let params = msg.content.slice(prefix.length).trim().split(/ +/g);
-  if(!params[0]) return msg.channel.send(`**syntax: ${prefix}role <all/humans/bots/@user> <name role/@role>`);
-if(params[0] === 'all') {
- if(!params[1]) return msg.channel.send(`**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role all <@role / name role>**`)
-     let role = msg.mentions.roles.first() || msg.guild.roles.find(r =>  r.name.toLowerCase().startsWith(params[1].toLowerCase()))
-   if(!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`)
- msg.guild.members.forEach(m => {
-if(m.roles.some(r => r.id == role.id)) return
-     m.addRole(role)
- })
- msg.channel.send(`**done give all role @${role.name}**`);
-} else if(params[0] === 'bots') {
- if(!params[1]) return msg.channel.send(`**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role bots <@role / name role>**`)
-     let role = msg.mentions.roles.first() || msg.guild.roles.find(r =>  r.name.toLowerCase().startsWith(params[1].toLowerCase()))
-   if(!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`)
- let bots = msg.guild.members.filter(m => m.user.bot)
- bots.forEach(bot => {
-   if(bot.roles.some(r => r.id == role.id)) return
-   bot.addRole(role)
- })
- msg.channel.send(`**done give all bots role @${role.name}**`);
-} else if(params[0] === 'humans') {
- if(!params[1]) return msg.channel.send(`**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role humans <@role / name role>**`)
-     let role = msg.mentions.roles.first() || msg.guild.roles.find(r =>  r.name.toLowerCase().startsWith(params[1].toLowerCase()))
-   if(!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`)
-   let humans = msg.guild.members.filter(m => !m.user.bot)
-   humans.forEach(h => {
-     if(h.roles.some(r => r.id == role.id)) return
-     h.addRole(role)
-   })
-   msg.channel.send(`**done give all humans role @${role.name}**`);
-}else {
-     if(!params[1]) return msg.channel.send(`**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role @user <@role / name role>**`)
-     let role = msg.mentions.roles.first() || msg.guild.roles.find(r =>  r.name.toLowerCase().startsWith(params[1].toLowerCase()))
-     if(!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`)
-     let userID = params[0].slice(2 , -1)
-     let user = msg.guild.members.get(userID)
-     if(!user) return
-     user.addRole(role)
-     msg.channel.send(`**Done give ${user} @${role.name}**`)
- 
-   }
- 
- 
- }
- 
- 
-})
-
-
-client.on("message", async message => {
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-    if(message.author.id != "515474180603641866") return;
-    if(message.author.bot) return;
-    if (command == "leave") {
-        if(!args[0] || args[1]) return message.reply(`**${prefix}leave <guild_id>**`);
-        let GuildId = client.guilds.get(args[0])
-        if(!GuildId) return message.reply(`** Guild ID is not Detected**`);
-        GuildId.leave().then(m => message.channel.send("**I have Left "+GuildId.name+" ✅**"))
-    }     
-})
-
-client.on('guildMemberAdd', member => {
 
     const channel = member.guild.channels.find('id', '569979981606682635');
   
@@ -230,10 +125,6 @@ client.on('guildMemberAdd', member => {
   
 });
 
-client.on("guildMemberAdd", member => {
-  client.channels.find('id', '569979981606682635').send(`**Welcome to alanaqah :wave:  ${member} **`)
-});
-
 
 client.on('message' , message => {
   if(message.author.bot) return;
@@ -246,22 +137,6 @@ var ApL = `${Math.round(client.ping)}`
   }  
  });
 
-
-
-const voiceChannel = '573270157858701332'; 
-
-const membersSize = (client) => {
- return client.channels.filter(c => c.type === "voice").map(c => c.members.size).reduce((a,b) => {return a + b}, 0);
-}
-
-
-client.on('ready', () => {
-client.channels.get(voiceChannel).setName(`Voice Online: [${membersSize(client)}]`)
-}); 
-
-client.on('voiceStateUpdate', () => {
-client.channels.get(voiceChannel).setName(`Voice Online: [${membersSize(client)}]`)
-})
 
 
 
@@ -303,91 +178,6 @@ client.on('message', message => {
         });
     };
 })
-
-client.on('message', message => {
-       if (message.content.startsWith(prefix + 'botserver')) {
-  let msg =  client.guilds.map(guild => `**${guild.name} عدد الاعضاء:          ${guild.memberCount}**`).join('\n');
-  let embed = new Discord.RichEmbed()
-  .setTitle(`${client.guilds.size} **سيرفرات   **`)
-  .setDescription(`**${msg}   **`)
-  .setColor("#ebf442");
-  message.channel.send(embed);
-}
-});
-
-
-
-client.on('message', message => {
-  if(message.content.includes('discord.gg/')){                                       
-      if (!message.member.hasPermissions(['ADMINISTRATOR'])){
-      message.delete()
-  return message.reply(`** لا يسمح لدعاية هنا  :angry: ! **`)
-  }
-}
-});
-
-
-client.on('message', message => {
-  if(message.content === prefix + "user"){
-    var embed = new Discord.RichEmbed()
-    .setTitle(message.author.tag, message.author.avatarURL)
-    .addField(`User`, message.author.username)
-    .addField(`Discrim`,`#`+ message.author.discriminator)
-    .addField(`Name Color Role`, message.member.colorRole)
-    .addField(`Game`,message.author.presence.game ||"Idel.")
-    .addField(`Status`,message.author.presence.status)
-    message.channel.send(embed);
-  }
-});
-
-
-
-client.on('guildCreate', guild => {
-    client.channels.get("573084977730682890").send(`✅ **${client.user.tag} دخل سيرفر جديد
-  
-    Server name: __${guild.name}__
-    
-    Server owner: __${guild.owner}__
-   
-    Server id: __${guild.id}__ 
-    
-    Server Count: __${guild.memberCount}__**`)
-
-    }); //Codes
-   
-    client.on('guildDelete', guild => {
-      client.channels.get("573084977730682890").send(`❎ **${client.user.tag} طلع من سيرفر
-
-    Server name: __${guild.name}__
-
-    Server owner: __${guild.owner}__
-
-    Server id: __${guild.id}__
-
-    Server Count: __${guild.memberCount}__**`)
-
-    });
-
-
-    client.on('message', function(msg) {
-        if(msg.content.startsWith (prefix  + 'serverinfo')) {
-         let embed = new Discord.RichEmbed()
-         .setColor('RANDOM')
-         .setTitle(`${message.guild.iconURL}`                                   ,`${msg.guild.name}`)
-         .addField(':earth_africa: Others'                                    ,`${msg.guild.region} `,true)
-         .addField(':closed_lock_with_key:  Role'                                          ,`${msg.guild.roles.size} `,true)
-         .addField(':busts_in_silhouette:  Members '                                      ,`${msg.guild.memberCount} `,true)
-         .addField(':busts_in_silhouette: Online'                         ,`**${msg.guild.members.filter(m=>m.presence.status == 'online').size} **]`,true)
-         .addField(':speech_balloon: Channels Chat'                              ,`** ${msg.guild.channels.filter(m => m.type === 'text').size}** `,true)
-         .addField(':speech_balloon: Channels Voice'                                ,`**${msg.guild.channels.filter(m => m.type === 'voice').size} **`,true)
-         .addField(':crown: Owned by'                                           ,`**${msg.guild.owner}**`,true)
-         .addField(':id: Server ID:'                                    ,`**${msg.guild.id}**`,true)
-         .addField(':calendar: Created On'                              ,msg.guild.createdAt.toLocaleString())
-         msg.channel.send({embed:embed});
-        }
-        });
-
-
 
 
 
