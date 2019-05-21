@@ -28,136 +28,30 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-const prefix = '!';
 const client2 = new Discord.Client();
 var table = require('table').table
-var ti={}  
-,spee={}
-,attentions={};
-console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-console.log('         [Wait please .. ]       ')
-console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-client.on('ready', () => {
-    console.log('')
-    console.log('')
-    console.log('')
-    console.log('')
-    console.log('')
-    console.log('')
-    console.log('')
-    console.log('')
-  console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-  console.log(`Logged in as [ ${client.user.tag}! ]`);
-  console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-  console.log('[           BOT IS ONLINE         ]')
-  console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-  console.log('[        info         ]')
-  console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-});
-client.on('ready', () => {
-           client.user.setActivity("Done > !help > Soon")
+function clean(text) {
+    if (typeof(text) === "string")
+        return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    else
+        return text;
+}
 
-client.user.setStatus('dnd');
-     
-     });
+var prefix = "!";
+var token = "NTc5MDQ1MjU0NjA3NTM2MTI5.XONJFQ.ofapsBJvVBhEWY_8ZLqiM_WBe0A";
 
-        client.on('message',async message => {
-    if(message.content.startsWith(prefix + "restart")) {
-        if(message.author.id !== "515474180603641866") return message.reply('يجب ان تمتلك بعض الخصائص في البوت لعمل رستارت للبوت');
-        message.channel.send('**Restarting.**').then(msg => {
-            setTimeout(() => {
-               msg.edit('**Restarting..**');
-            },1000);
-            setTimeout(() => {
-               msg.edit('**Restarting...**');
-            },2000);
-        });
-        console.log(`${message.author.tag} [ ${message.author.id} ] تم إعادة تشغيل البوت بنجاح!`);
-        console.log(`Restarting..`);
-        setTimeout(() => {
-            client.destroy();
-            client.login(process.env.BOT_TOKEN);
-        },3000);
-    }
+client.on("ready", () => {
+    console.log("Kevin. | Logged in! Server count: ${client.guilds.size}");
+    client.user.setGame(`${prefix}help | ${prefix}new | ${client.guilds.size} servers`);
+    client.user.setStatus('dnd');
 });
 
-
-client.on("message", (message) => {
-    if(message.content.startsWith(prefix+"outlook")) {
-        message.channel.send(JSON.stringify({
-            email: Math.random().toString(36).slice(4).trim()+"@outlook.com",
-            password: Math.random().toString(36).slice(4).trim()
-        }))
-    }
-})
-
-
-client.on('guildMemberAdd', member => {
-
-    const channel = member.guild.channels.find('id', '569979981606682635');
-  
-    const millis = new Date().getTime() - member.user.createdAt.getTime();
-    const now = new Date();
-    const createdAt = millis / 1000 / 60 / 60 / 24;
-
-
-
-
-  
-    const embed = new Discord.RichEmbed()
-    
-    .setColor("black")
-    .setDescription(`**تاريخ دخولك للدسكورد منذ ${createdAt.toFixed(0)} يوم**`)
-    .setAuthor(member.user.tag, member.user.avatarURL);
-    channel.sendEmbed(embed);
-
-  
-});
-
-
-client.on('message' , message => {
-  if(message.author.bot) return;
-  if(message.content.startsWith(prefix + "ping")) {
- message.channel.send('pong').then((msg) => {
-var PinG = `${Date.now() - msg.createdTimestamp}`
-var ApL = `${Math.round(client.ping)}`
-      msg.edit(`\`\`\`javascript\nTime taken: ${PinG} ms.\nDiscord API: ${ApL} ms.\`\`\``);
- })
-  }  
- });
-
-
-
-
-client.on('message', async message => {
-  let args = message.content.slice(3);
-  if(message.content.startsWith(prefix + 'bc')) {
-    if(!message.guild.members.get(message.author.id).hasPermission('ADMINISTRATOR')) return message.channel.send('Required Administrator Permission')
-       message.guild.members.forEach(m => {
-      
-      m.send(args.replace('[user]', m).replace('[server]', m.guild.name).replace('[sender]', message.author.username))
-    })
-  }
-})
-
-
-
-client.on('message', message => {
-    if (message.content.startsWith("<@564065937175871508>"))
-    
-    message.reply("ارحب");
-    
-      
-
-
+client.on("guildCreate", (guild) => {
+    client.user.setGame(`${prefix}help | ${prefix}new | ${client.guilds.size} servers`);
+    client.user.setStatus('dnd');
 
 });
+
 
 
 client.login(process.env.BOT_TOKEN)
