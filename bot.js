@@ -38,7 +38,6 @@ function clean(text) {
 }
 
 var prefix = "!";
-var token = "NTc5MDQ1MjU0NjA3NTM2MTI5.XONJFQ.ofapsBJvVBhEWY_8ZLqiM_WBe0A";
 
 client.on("ready", () => {
     console.log("Kevin. | Logged in! Server count: ${client.guilds.size}");
